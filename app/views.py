@@ -1,6 +1,5 @@
 import datetime
 import os
-
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
@@ -23,14 +22,12 @@ def home_view(request):
     }
     return render(request, template_name, context)
 
-
 def time_view(request):
     # обратите внимание – здесь HTML шаблона нет, 
     # возвращается просто текст
     current_time = datetime.datetime.now().time()
     msg = f'Текущее время: {current_time}'
     return HttpResponse(msg)
-
 
 def workdir_view(request):
     files = os.listdir('.')
